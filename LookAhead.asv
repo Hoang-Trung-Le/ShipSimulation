@@ -19,7 +19,11 @@ AB = [(wayPoint2(1) - wayPoint1(1)), (wayPoint2(2) - wayPoint1(2))];
 % a*x^2 + bx + c = 0
 a = line(1)^2 + 1;
 b = -2*(H(1) - line(1)*line(3) + line(1)*H(2));
-c = H(1)^2 + line(3)^2 - 2*line(3);
-xLs = roots([]);
+c = H(1)^2 + line(3)^2 - 2*line(3)*H(2) + H(2)^2 - (2*l)^2;
+xLs = roots([a b c]);
+cond = (H(1)*AB(1) - (line(3) - H(2))*AB(2)) / (AB(1) + line(1)*AB(2));
+xL = xLs(xLs > cond);
+yL = line(1)*xL + line(3);
+L = [xL, yL];
 
 end
