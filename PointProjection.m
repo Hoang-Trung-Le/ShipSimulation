@@ -11,6 +11,7 @@ function projectedPoint = PointProjection(shipPos, line)
 % [A, B] = equationsToMatrix([eqn1, eqn2], [xH, yH]);
 % projectedPoint = double(linsolve(A,B))';
 
+% AX = B -> X = A^(-1)*B or A\B in Matlab
 A = [line(1) line(2); line(2) -line(1)];
 B = [-line(3); line(2)*shipPos(1) - line(1)*shipPos(2)];
 projectedPoint = transpose(A\B);
