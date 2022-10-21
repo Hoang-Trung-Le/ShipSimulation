@@ -18,14 +18,18 @@ function L = LookAhead(wayPoint1, wayPoint2, line, H, l)
 % xL is the concerned variable
 % L is on the path -> a*xL + b*yL + c = 0 -> yL = a*xL + c (b = -1)
 % a*x^2 + bx + c = 0
+% AB = [(wayPoint2(1) - wayPoint1(1)), (wayPoint2(2) - wayPoint1(2))];
+% a = line(1)^2 + 1;
+% b = -2*(H(1) - line(1)*line(3) + line(1)*H(2));
+% c = H(1)^2 + line(3)^2 - 2*line(3)*H(2) + H(2)^2 - (2*l)^2;
+% xLs = roots([a b c]);
+% cond = (H(1)*AB(1) - (line(3) - H(2))*AB(2)) / (AB(1) + line(1)*AB(2));
+% xL = xLs(xLs > cond);
+% yL = line(1)*xL + line(3);
+% L = [xL, yL];
+
 AB = [(wayPoint2(1) - wayPoint1(1)), (wayPoint2(2) - wayPoint1(2))];
-a = line(1)^2 + 1;
-b = -2*(H(1) - line(1)*line(3) + line(1)*H(2));
-c = H(1)^2 + line(3)^2 - 2*line(3)*H(2) + H(2)^2 - (2*l)^2;
-xLs = roots([a b c]);
-cond = (H(1)*AB(1) - (line(3) - H(2))*AB(2)) / (AB(1) + line(1)*AB(2));
-xL = xLs(xLs > cond);
-yL = line(1)*xL + line(3);
-L = [xL, yL];
+U = AB / norm(AB);
+L = H + (5*l)*U;
 
 end
