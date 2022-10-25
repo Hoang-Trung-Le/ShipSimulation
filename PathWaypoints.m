@@ -6,11 +6,11 @@ waypoints = [500 0;
             1000 1500;
             2000 0];
 
-s = size(waypoints,1);
-for i = 1:(s-1)
-   xPaths = 
-end
+% s = size(waypoints,1);
+% for i = 1:(s-1)
+%    xPaths = 
+% end
 
 end
 
-plot(waypoints(1:4,2), waypoints(1:4,1))
+% plot(waypoints(1:4,2), waypoints(1:4,1))
