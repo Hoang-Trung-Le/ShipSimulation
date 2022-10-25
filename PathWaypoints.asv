@@ -1,7 +1,0 @@
-%% Waypoints of paths
-function Waypoints()
-
-waypoints = [500 0; 500 1000; 1000 1500; 2000 0];
-
-
-end
