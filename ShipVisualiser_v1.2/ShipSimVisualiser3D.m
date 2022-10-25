@@ -13,13 +13,13 @@ heading = out.eta.Data(:,3)
 alpha = out.alpha.Data(:,1);
 
 dualpods = true; %option to display two pod objects as in real life
-
+out.alpha.Time(end)
 %% SHIP ANIMATION
 hold on
 axis equal
 %Ship = PlaceObject('Ship_5.ply',[x,y,0.0])
-surf([-50,-50;50,50],[-50,50;-50,50],[0.0,0.0;0.0,0.0],'CData',imread('ocean.jpg'),'FaceColor','texturemap','FaceAlpha',0.7); %starting ocean area
-set(gca,'color', [0.6 0.8 1]); %plot bg colour
+% surf([-50,-50;50,50],[-50,50;-50,50],[0.0,0.0;0.0,0.0],'CData',imread('ocean.jpg'),'FaceColor','texturemap','FaceAlpha',0.7); %starting ocean area
+% set(gca,'color', [0.6 0.8 1]); %plot bg colour
 
 Ship = PlaceObj('Ship_7.ply', axes) %place the ship model
 
