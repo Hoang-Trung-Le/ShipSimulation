@@ -7,7 +7,7 @@ classdef PlaceObj < handle
         objVertexCount;
     end
     methods
-        function self = PlaceObj(ply)
+        function self = PlaceObj(ply, axes)
             self.ply = ply;
             [f,v,data] = plyread(ply,'tri');
             % Get vertex count
@@ -32,7 +32,7 @@ classdef PlaceObj < handle
                 % Then plot the trisurf
 %                 for i = 1: size(locations,1)
                     self.objMesh_h = trisurf(f,self.objVerts(:,1),self.objVerts(:,2), self.objVerts(:,3) ...
-                        ,'FaceVertexCData',vertexColours,'EdgeColor','none','EdgeLighting','none');
+                        ,'FaceVertexCData',vertexColours,'EdgeColor','none','EdgeLighting','none','Parent',axes);
 %                 end
             catch ME_1
                 disp(ME_1);
