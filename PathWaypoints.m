@@ -1,4 +1,4 @@
-%% Waypoints of paths
+ %% Waypoints of paths
 function waypoints = PathWaypoints()
 
 waypoints = [500 0;
